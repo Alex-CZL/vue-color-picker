@@ -18,6 +18,8 @@ onChange(val){
 	//这里的val就是你要的色值了
 }
 
+觉得对你有用的请右上角点个star，谢谢谢谢谢谢
+
 ```
 
 ## Build Setup
