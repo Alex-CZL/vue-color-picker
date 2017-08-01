@@ -1,6 +1,6 @@
 <template lang="html">
 <div>
-	<div class="color-picker-container" id="color-picker-container" :class="{'active':isShowPicker}">
+	<div class="color-picker-container" :id="containerId" :class="{'active':isShowPicker}">
 		<div class="color"></div>
 		<div class="wheel"></div>
 		<div class="overlay"></div>
@@ -11,14 +11,16 @@
 </template>
 
 <script>
+/**
+ * author : alex 
+ * email : 961163829@qq.com
+ */
 export default {
 	props:{
 		/*由父组件传递的默认颜色*/
 		defaultColor:{
 			type:String,
-			default(){
-				return "#000000"
-			}
+			default:"#000000"
 		},
 		/*目标元素，可以是input框或者按钮等*/
 		targetElem:null
@@ -28,7 +30,7 @@ export default {
 			isShowPicker:false,
 			wheel:document.querySelector('.wheel'),
 			color:this.defaultColor,
-			container:"#color-picker-container",
+			containerId:"color-picker-container",
 			dom:{
 				hMarker:null,
 				slMarker:null,
@@ -43,7 +45,7 @@ export default {
 	},
 	mounted(){
 
-		this.dom.container=document.querySelector("#color-picker-container");
+		this.dom.container=document.querySelector('#'+this.containerId);
 		this.dom.hMarker=document.querySelector('.h-marker');
 		this.dom.slMarker=document.querySelector('.sl-marker');
 		this.dom.color=document.querySelector('.color');
@@ -168,7 +170,10 @@ export default {
 			/*获取父节点*/
 		    return e.target.nodeType!==9&&e.target.parentNode;
 		},
-		/*以下为组件内部函数*/
+		/**
+		 * 以下为组件内部函数
+		 * 算法来自网络
+		 */
 	    updateValue:function (event) {
 			var self = this;
 

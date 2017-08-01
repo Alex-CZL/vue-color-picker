@@ -5,7 +5,6 @@
         v-model="color" 
         auto-complete="off"
         @focus="openPicker"
-        @blur="closePicker"
         :style="'background-color:'+color"
         >
     <colorPicker
