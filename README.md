@@ -1,3 +1,5 @@
+# 注：本项目早已不维护，谨慎使用，可clone后自行修改
+
 # vue-color-picker
 
 > a component named 'vue-color-picker''
